@@ -3,7 +3,7 @@
   border: none;
   background-color: #efefef;
   border-radius: 5px;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: $font-inter;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
@@ -17,7 +17,7 @@
 .people__search-input::placeholder {
   color: #999;
   transition: all 0.2s;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: $font-inter;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;

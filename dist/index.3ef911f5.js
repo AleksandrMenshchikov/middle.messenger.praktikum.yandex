@@ -199,7 +199,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"../../vendors/normalize/normalize.css":"vendors/normalize/normalize.css","../../vendors/fonts/stylesheet.css":"vendors/fonts/stylesheet.css","/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/sprint_1_newest/static/images/loupe.svg":[["loupe.65e148ae.svg","images/loupe.svg"],"images/loupe.svg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/sprint_1_newest/static/images/balvan-foto.jpeg":[["balvan-foto.284f7439.jpeg","images/balvan-foto.jpeg"],"images/balvan-foto.jpeg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/sprint_1_newest/static/images/check.svg":[["check.4b7c2681.svg","images/check.svg"],"images/check.svg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/sprint_1_newest/static/images/background-avatar.png":[["background-avatar.ba70d725.png","images/background-avatar.png"],"images/background-avatar.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../../vendors/normalize/normalize.css":"vendors/normalize/normalize.css","../../vendors/fonts/stylesheet.css":"vendors/fonts/stylesheet.css","/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/middle.messenger.praktikum.yandex/static/images/loupe.svg":[["loupe.65e148ae.svg","images/loupe.svg"],"images/loupe.svg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/middle.messenger.praktikum.yandex/static/images/balvan-foto.jpeg":[["balvan-foto.284f7439.jpeg","images/balvan-foto.jpeg"],"images/balvan-foto.jpeg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/middle.messenger.praktikum.yandex/static/images/check.svg":[["check.4b7c2681.svg","images/check.svg"],"images/check.svg"],"/Users/aleksandr_menshchikov/Desktop/yandex-praktikum/messenger/middle.messenger.praktikum.yandex/static/images/background-avatar.png":[["background-avatar.ba70d725.png","images/background-avatar.png"],"images/background-avatar.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -227,7 +227,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51551" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
