@@ -1,0 +1,18 @@
+.profile__editor-info {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  color: #3369f3;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  height: fit-content;
+  width: fit-content;
+  transition: opacity 0.2s;
+}
+
+.profile__editor-info:hover {
+  opacity: 0.9;
+}

@@ -1,0 +1,44 @@
+.people__search-close {
+  min-width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  margin-left: -2px;
+  height: 32px;
+  background-color: #efefef;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.people__search-close::after {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #999;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.people__search-close::before {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  content: "";
+  width: 14px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #999;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.people__search-close:hover {
+  opacity: 0.9;
+}

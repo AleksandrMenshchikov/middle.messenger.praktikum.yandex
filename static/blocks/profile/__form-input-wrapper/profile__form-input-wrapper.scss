@@ -1,0 +1,9 @@
+.profile__form-input-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.profile__form-input-wrapper:last-child {
+  border-bottom: none;
+}

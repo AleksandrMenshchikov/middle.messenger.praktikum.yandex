@@ -1,0 +1,24 @@
+.chat__footer-label {
+  box-sizing: border-box;
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  margin: 0 auto 0 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.chat__footer-label:hover {
+  .chat__footer-label-text {
+    color: #3369f3;
+  }
+}
+
+.chat__footer-label:nth-of-type(3) {
+  margin-top: 0;
+}
+

@@ -1,0 +1,16 @@
+.signin__link {
+  display: block;
+  margin: 15px auto 30px;
+  width: fit-content;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+  color: #3369F3;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.signin__link:hover {
+  opacity: 0.9;
+}

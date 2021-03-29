@@ -1,0 +1,19 @@
+.chat__message-right-text-time {
+  display: block;
+  position: relative;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 15px;
+  color: #999;
+  margin: 1px 0 0 10px;
+  float: right;
+  padding-left: 15px;
+}
+
+.chat__message-right-text-time::before {
+position: absolute;
+content: url(/images/check.svg);
+top: 0;
+right: 28px;
+}

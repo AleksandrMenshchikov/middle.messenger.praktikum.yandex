@@ -1,0 +1,17 @@
+.main-500__link {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: 11px;
+  line-height: 11px;
+  color: #3369f3;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  transition: opacity 0.2s;
+}
+
+.main-500__link:hover {
+  opacity: 0.9;
+}
+
+

@@ -1,0 +1,35 @@
+.chat__footer-button-select {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.chat__footer-button-select {
+  svg {
+    path {
+      transition: fill 0.2s;
+    }
+  }
+}
+
+.chat__footer-button-select:hover {
+  svg {
+    path {
+      fill: #3369f3;
+    }
+  }
+}
+
+.chat__footer-button-select:focus {
+  svg {
+    path {
+      fill: #3369f3;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.chat__header-add-user {
+  box-sizing: border-box;
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  margin: 6px auto 0 5px;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.chat__header-add-user:hover {
+  .chat__header-add-user-text {
+    color: #3369F3;
+  }
+}

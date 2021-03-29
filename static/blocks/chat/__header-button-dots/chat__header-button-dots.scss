@@ -1,0 +1,41 @@
+.chat__header-button-dots {
+  width: 29px;
+  height: 29px;
+  margin-left: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+
+.chat__header-button-dots {
+  svg {
+    circle {
+      transition: all 0.2s;
+    }
+  }
+}
+
+.chat__header-button-dots:hover {
+  background-color: #f5f5f5;
+  svg {
+    circle {
+      fill: #3369f3;
+    }
+  }
+}
+
+.chat__header-button-dots:focus {
+  background-color: #f5f5f5;
+  svg {
+    circle {
+      fill: #3369f3;
+    }
+  }
+}

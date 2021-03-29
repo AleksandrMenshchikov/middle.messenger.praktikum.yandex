@@ -1,0 +1,18 @@
+.popup-avatar__label {
+  max-width: 122px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #3369f3;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.popup-avatar__label:hover {
+  opacity: 0.9;
+}
