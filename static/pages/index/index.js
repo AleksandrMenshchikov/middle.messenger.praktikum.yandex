@@ -1,3 +1,10 @@
+import { selectors } from "../../utils/utils";
+
+const autosize = require("autosize");
+autosize(selectors.chatFooterInputText);
+
+
+
 const profile = document.querySelector(".profile");
 const profileEditor = document.querySelector(".profile__editor");
 const profileConfirm = document.querySelector(".profile__confirm");
@@ -196,8 +203,4 @@ chatFooterButtonSelect.addEventListener("click", (evt) => {
   }
 });
 
-import autosize from "../../vendors/autosize/autosize";
-autosize(document.querySelector(".chat__footer-input-text"));
-
 document.querySelector(".chat__message").scrollIntoView(false);
-

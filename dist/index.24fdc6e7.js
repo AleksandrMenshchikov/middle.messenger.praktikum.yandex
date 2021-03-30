@@ -117,7 +117,310 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"vendors/handlebars/handlebars-v4.7.7.js":[function(require,module,exports) {
+})({"utils/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.selectors = void 0;
+var selectors = {
+  chatFooterInputText: document.querySelector(".chat__footer-input-text"),
+  inputSignupTel: document.querySelector("input[name='signup-tel']")
+};
+exports.selectors = selectors;
+},{}],"../node_modules/autosize/dist/autosize.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+/*!
+	autosize 4.0.2
+	license: MIT
+	http://www.jacklmoore.com/autosize
+*/
+(function (global, factory) {
+	if (typeof define === "function" && define.amd) {
+		define(['module', 'exports'], factory);
+	} else if (typeof exports !== "undefined") {
+		factory(module, exports);
+	} else {
+		var mod = {
+			exports: {}
+		};
+		factory(mod, mod.exports);
+		global.autosize = mod.exports;
+	}
+})(this, function (module, exports) {
+	'use strict';
+
+	var map = typeof Map === "function" ? new Map() : function () {
+		var keys = [];
+		var values = [];
+
+		return {
+			has: function has(key) {
+				return keys.indexOf(key) > -1;
+			},
+			get: function get(key) {
+				return values[keys.indexOf(key)];
+			},
+			set: function set(key, value) {
+				if (keys.indexOf(key) === -1) {
+					keys.push(key);
+					values.push(value);
+				}
+			},
+			delete: function _delete(key) {
+				var index = keys.indexOf(key);
+				if (index > -1) {
+					keys.splice(index, 1);
+					values.splice(index, 1);
+				}
+			}
+		};
+	}();
+
+	var createEvent = function createEvent(name) {
+		return new Event(name, { bubbles: true });
+	};
+	try {
+		new Event('test');
+	} catch (e) {
+		// IE does not support `new Event()`
+		createEvent = function createEvent(name) {
+			var evt = document.createEvent('Event');
+			evt.initEvent(name, true, false);
+			return evt;
+		};
+	}
+
+	function assign(ta) {
+		if (!ta || !ta.nodeName || ta.nodeName !== 'TEXTAREA' || map.has(ta)) return;
+
+		var heightOffset = null;
+		var clientWidth = null;
+		var cachedHeight = null;
+
+		function init() {
+			var style = window.getComputedStyle(ta, null);
+
+			if (style.resize === 'vertical') {
+				ta.style.resize = 'none';
+			} else if (style.resize === 'both') {
+				ta.style.resize = 'horizontal';
+			}
+
+			if (style.boxSizing === 'content-box') {
+				heightOffset = -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom));
+			} else {
+				heightOffset = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+			}
+			// Fix when a textarea is not on document body and heightOffset is Not a Number
+			if (isNaN(heightOffset)) {
+				heightOffset = 0;
+			}
+
+			update();
+		}
+
+		function changeOverflow(value) {
+			{
+				// Chrome/Safari-specific fix:
+				// When the textarea y-overflow is hidden, Chrome/Safari do not reflow the text to account for the space
+				// made available by removing the scrollbar. The following forces the necessary text reflow.
+				var width = ta.style.width;
+				ta.style.width = '0px';
+				// Force reflow:
+				/* jshint ignore:start */
+				ta.offsetWidth;
+				/* jshint ignore:end */
+				ta.style.width = width;
+			}
+
+			ta.style.overflowY = value;
+		}
+
+		function getParentOverflows(el) {
+			var arr = [];
+
+			while (el && el.parentNode && el.parentNode instanceof Element) {
+				if (el.parentNode.scrollTop) {
+					arr.push({
+						node: el.parentNode,
+						scrollTop: el.parentNode.scrollTop
+					});
+				}
+				el = el.parentNode;
+			}
+
+			return arr;
+		}
+
+		function resize() {
+			if (ta.scrollHeight === 0) {
+				// If the scrollHeight is 0, then the element probably has display:none or is detached from the DOM.
+				return;
+			}
+
+			var overflows = getParentOverflows(ta);
+			var docTop = document.documentElement && document.documentElement.scrollTop; // Needed for Mobile IE (ticket #240)
+
+			ta.style.height = '';
+			ta.style.height = ta.scrollHeight + heightOffset + 'px';
+
+			// used to check if an update is actually necessary on window.resize
+			clientWidth = ta.clientWidth;
+
+			// prevents scroll-position jumping
+			overflows.forEach(function (el) {
+				el.node.scrollTop = el.scrollTop;
+			});
+
+			if (docTop) {
+				document.documentElement.scrollTop = docTop;
+			}
+		}
+
+		function update() {
+			resize();
+
+			var styleHeight = Math.round(parseFloat(ta.style.height));
+			var computed = window.getComputedStyle(ta, null);
+
+			// Using offsetHeight as a replacement for computed.height in IE, because IE does not account use of border-box
+			var actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
+
+			// The actual height not matching the style height (set via the resize method) indicates that 
+			// the max-height has been exceeded, in which case the overflow should be allowed.
+			if (actualHeight < styleHeight) {
+				if (computed.overflowY === 'hidden') {
+					changeOverflow('scroll');
+					resize();
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+				}
+			} else {
+				// Normally keep overflow set to hidden, to avoid flash of scrollbar as the textarea expands.
+				if (computed.overflowY !== 'hidden') {
+					changeOverflow('hidden');
+					resize();
+					actualHeight = computed.boxSizing === 'content-box' ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
+				}
+			}
+
+			if (cachedHeight !== actualHeight) {
+				cachedHeight = actualHeight;
+				var evt = createEvent('autosize:resized');
+				try {
+					ta.dispatchEvent(evt);
+				} catch (err) {
+					// Firefox will throw an error on dispatchEvent for a detached element
+					// https://bugzilla.mozilla.org/show_bug.cgi?id=889376
+				}
+			}
+		}
+
+		var pageResize = function pageResize() {
+			if (ta.clientWidth !== clientWidth) {
+				update();
+			}
+		};
+
+		var destroy = function (style) {
+			window.removeEventListener('resize', pageResize, false);
+			ta.removeEventListener('input', update, false);
+			ta.removeEventListener('keyup', update, false);
+			ta.removeEventListener('autosize:destroy', destroy, false);
+			ta.removeEventListener('autosize:update', update, false);
+
+			Object.keys(style).forEach(function (key) {
+				ta.style[key] = style[key];
+			});
+
+			map.delete(ta);
+		}.bind(ta, {
+			height: ta.style.height,
+			resize: ta.style.resize,
+			overflowY: ta.style.overflowY,
+			overflowX: ta.style.overflowX,
+			wordWrap: ta.style.wordWrap
+		});
+
+		ta.addEventListener('autosize:destroy', destroy, false);
+
+		// IE9 does not fire onpropertychange or oninput for deletions,
+		// so binding to onkeyup to catch most of those events.
+		// There is no way that I know of to detect something like 'cut' in IE9.
+		if ('onpropertychange' in ta && 'oninput' in ta) {
+			ta.addEventListener('keyup', update, false);
+		}
+
+		window.addEventListener('resize', pageResize, false);
+		ta.addEventListener('input', update, false);
+		ta.addEventListener('autosize:update', update, false);
+		ta.style.overflowX = 'hidden';
+		ta.style.wordWrap = 'break-word';
+
+		map.set(ta, {
+			destroy: destroy,
+			update: update
+		});
+
+		init();
+	}
+
+	function destroy(ta) {
+		var methods = map.get(ta);
+		if (methods) {
+			methods.destroy();
+		}
+	}
+
+	function update(ta) {
+		var methods = map.get(ta);
+		if (methods) {
+			methods.update();
+		}
+	}
+
+	var autosize = null;
+
+	// Do nothing in Node.js environment and IE8 (or lower)
+	if (typeof window === 'undefined' || typeof window.getComputedStyle !== 'function') {
+		autosize = function autosize(el) {
+			return el;
+		};
+		autosize.destroy = function (el) {
+			return el;
+		};
+		autosize.update = function (el) {
+			return el;
+		};
+	} else {
+		autosize = function autosize(el, options) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], function (x) {
+					return assign(x, options);
+				});
+			}
+			return el;
+		};
+		autosize.destroy = function (el) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], destroy);
+			}
+			return el;
+		};
+		autosize.update = function (el) {
+			if (el) {
+				Array.prototype.forEach.call(el.length ? el : [el], update);
+			}
+			return el;
+		};
+	}
+
+	exports.default = autosize;
+	module.exports = exports['default'];
+});
+},{}],"vendors/handlebars/handlebars-v4.7.7.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -7272,160 +7575,18 @@ THE SOFTWARE.
 });
 
 ;
-},{}],"vendors/autosize/autosize.js":[function(require,module,exports) {
-var define;
-/*!
-	autosize 4.0.2
-	license: MIT
-	http://www.jacklmoore.com/autosize
-*/
-!function (e, t) {
-  if ("function" == typeof define && define.amd) define(["module", "exports"], t);else if ("undefined" != typeof exports) t(module, exports);else {
-    var n = {
-      exports: {}
-    };
-    t(n, n.exports), e.autosize = n.exports;
-  }
-}(this, function (e, t) {
-  "use strict";
-
-  var n,
-      o,
-      p = "function" == typeof Map ? new Map() : (n = [], o = [], {
-    has: function has(e) {
-      return -1 < n.indexOf(e);
-    },
-    get: function get(e) {
-      return o[n.indexOf(e)];
-    },
-    set: function set(e, t) {
-      -1 === n.indexOf(e) && (n.push(e), o.push(t));
-    },
-    delete: function _delete(e) {
-      var t = n.indexOf(e);
-      -1 < t && (n.splice(t, 1), o.splice(t, 1));
-    }
-  }),
-      c = function c(e) {
-    return new Event(e, {
-      bubbles: !0
-    });
-  };
-
-  try {
-    new Event("test");
-  } catch (e) {
-    c = function c(e) {
-      var t = document.createEvent("Event");
-      return t.initEvent(e, !0, !1), t;
-    };
-  }
-
-  function r(r) {
-    if (r && r.nodeName && "TEXTAREA" === r.nodeName && !p.has(r)) {
-      var e,
-          n = null,
-          o = null,
-          i = null,
-          d = function d() {
-        r.clientWidth !== o && a();
-      },
-          l = function (t) {
-        window.removeEventListener("resize", d, !1), r.removeEventListener("input", a, !1), r.removeEventListener("keyup", a, !1), r.removeEventListener("autosize:destroy", l, !1), r.removeEventListener("autosize:update", a, !1), Object.keys(t).forEach(function (e) {
-          r.style[e] = t[e];
-        }), p.delete(r);
-      }.bind(r, {
-        height: r.style.height,
-        resize: r.style.resize,
-        overflowY: r.style.overflowY,
-        overflowX: r.style.overflowX,
-        wordWrap: r.style.wordWrap
-      });
-
-      r.addEventListener("autosize:destroy", l, !1), "onpropertychange" in r && "oninput" in r && r.addEventListener("keyup", a, !1), window.addEventListener("resize", d, !1), r.addEventListener("input", a, !1), r.addEventListener("autosize:update", a, !1), r.style.overflowX = "hidden", r.style.wordWrap = "break-word", p.set(r, {
-        destroy: l,
-        update: a
-      }), "vertical" === (e = window.getComputedStyle(r, null)).resize ? r.style.resize = "none" : "both" === e.resize && (r.style.resize = "horizontal"), n = "content-box" === e.boxSizing ? -(parseFloat(e.paddingTop) + parseFloat(e.paddingBottom)) : parseFloat(e.borderTopWidth) + parseFloat(e.borderBottomWidth), isNaN(n) && (n = 0), a();
-    }
-
-    function s(e) {
-      var t = r.style.width;
-      r.style.width = "0px", r.offsetWidth, r.style.width = t, r.style.overflowY = e;
-    }
-
-    function u() {
-      if (0 !== r.scrollHeight) {
-        var e = function (e) {
-          for (var t = []; e && e.parentNode && e.parentNode instanceof Element;) {
-            e.parentNode.scrollTop && t.push({
-              node: e.parentNode,
-              scrollTop: e.parentNode.scrollTop
-            }), e = e.parentNode;
-          }
-
-          return t;
-        }(r),
-            t = document.documentElement && document.documentElement.scrollTop;
-
-        r.style.height = "", r.style.height = r.scrollHeight + n + "px", o = r.clientWidth, e.forEach(function (e) {
-          e.node.scrollTop = e.scrollTop;
-        }), t && (document.documentElement.scrollTop = t);
-      }
-    }
-
-    function a() {
-      u();
-      var e = Math.round(parseFloat(r.style.height)),
-          t = window.getComputedStyle(r, null),
-          n = "content-box" === t.boxSizing ? Math.round(parseFloat(t.height)) : r.offsetHeight;
-
-      if (n < e ? "hidden" === t.overflowY && (s("scroll"), u(), n = "content-box" === t.boxSizing ? Math.round(parseFloat(window.getComputedStyle(r, null).height)) : r.offsetHeight) : "hidden" !== t.overflowY && (s("hidden"), u(), n = "content-box" === t.boxSizing ? Math.round(parseFloat(window.getComputedStyle(r, null).height)) : r.offsetHeight), i !== n) {
-        i = n;
-        var o = c("autosize:resized");
-
-        try {
-          r.dispatchEvent(o);
-        } catch (e) {}
-      }
-    }
-  }
-
-  function i(e) {
-    var t = p.get(e);
-    t && t.destroy();
-  }
-
-  function d(e) {
-    var t = p.get(e);
-    t && t.update();
-  }
-
-  var l = null;
-  "undefined" == typeof window || "function" != typeof window.getComputedStyle ? ((l = function l(e) {
-    return e;
-  }).destroy = function (e) {
-    return e;
-  }, l.update = function (e) {
-    return e;
-  }) : ((l = function l(e, t) {
-    return e && Array.prototype.forEach.call(e.length ? e : [e], function (e) {
-      return r(e);
-    }), e;
-  }).destroy = function (e) {
-    return e && Array.prototype.forEach.call(e.length ? e : [e], i), e;
-  }, l.update = function (e) {
-    return e && Array.prototype.forEach.call(e.length ? e : [e], d), e;
-  }), t.default = l, e.exports = t.default;
-});
 },{}],"pages/index/index.js":[function(require,module,exports) {
 "use strict";
 
-var _handlebarsV = _interopRequireDefault(require("../../vendors/handlebars/handlebars-v4.7.7"));
+var _utils = require("../../utils/utils");
 
-var _autosize = _interopRequireDefault(require("../../vendors/autosize/autosize"));
+var _handlebarsV = _interopRequireDefault(require("../../vendors/handlebars/handlebars-v4.7.7"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var autosize = require("autosize");
+
+autosize(_utils.selectors.chatFooterInputText);
 var profile = document.querySelector(".profile");
 var profileEditor = document.querySelector(".profile__editor");
 var profileConfirm = document.querySelector(".profile__confirm");
@@ -7584,9 +7745,8 @@ chatFooterButtonSelect.addEventListener("click", function (evt) {
     chatFooterButtonsContainer.classList.toggle("chat__footer-buttons-container_active");
   }
 });
-(0, _autosize.default)(document.querySelector(".chat__footer-input-text"));
 document.querySelector(".chat__message").scrollIntoView(false);
-},{"../../vendors/handlebars/handlebars-v4.7.7":"vendors/handlebars/handlebars-v4.7.7.js","../../vendors/autosize/autosize":"vendors/autosize/autosize.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../../utils/utils":"utils/utils.js","autosize":"../node_modules/autosize/dist/autosize.js","../../vendors/handlebars/handlebars-v4.7.7":"vendors/handlebars/handlebars-v4.7.7.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -7614,7 +7774,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51551" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62878" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
