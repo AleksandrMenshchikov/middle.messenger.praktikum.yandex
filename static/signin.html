@@ -8,11 +8,17 @@
     <title>Авторизация</title>
   </head>
   <body>
-    <div class="root-signin">
+    <div class="root-signin"></div>
+
+    <script id="signin-template" type="text/x-handlebars-template">
       <div class="signin">
-        <h2 class="signin__title">Вход</h2>
-        <form name="form-signin">
-          <label for="signin-login" class="signin__label">Логин</label>
+        <h2 class="signin__title">
+          Вход
+        </h2>
+        <form name="form-signin" novalidate>
+          <label for="signin-login" class="signin__label">
+            Логин
+          </label>
           <input
             placeholder="Введите логин"
             class="signin__input"
@@ -24,10 +30,12 @@
             autocomplete="username"
             required
           />
-          <span class="signin__input-error"
-            >Ошибка</span
-          >
-          <label for="signin-password" class="signin__label">Пароль</label>
+          <span class="signin__input-error">
+            Ошибка
+          </span>
+          <label for="signin-password" class="signin__label">
+            Пароль
+          </label>
           <input
             placeholder="Введите пароль"
             class="signin__input"
@@ -39,14 +47,18 @@
             autocomplete="current-password"
             required
           />
-          <span class="signin__input-error">Ошибка</span>
+          <span class="signin__input-error">
+            Ошибка
+          </span>
           <button class="signin__button-submit" type="submit">
             Авторизоваться
           </button>
         </form>
-        <a href="./signup.html" class="signin__link">Нет аккаунта?</a>
+        <a href="./signup.html" class="signin__link">
+          Нет аккаунта?
+        </a>
       </div>
-    </div>
+    </script>
     <script src="./pages/signin/index.js"></script>
   </body>
 </html>

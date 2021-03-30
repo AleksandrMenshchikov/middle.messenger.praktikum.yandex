@@ -14,6 +14,10 @@ export const selectors = {
   popupAddUserIconClose: ".popup-add-user__icon-close",
   popupDeleteUserIconClose: ".popup-delete-user__icon-close",
   chatFooterButtonSelect: ".chat__footer-button-select",
+  signinTemplate: "#signin-template",
+  signupTemplate: "#signup-template",
+  rootSignin: ".root-signin",
+  rootSignup: ".root-signup",
 };
 
 export const classes = {
@@ -38,6 +42,8 @@ export const classes = {
   chatHeaderAcceptUserActive: "chat__header-accept-user_active",
   popupDeleteUserActive: "popup-delete-user_active",
   chatFooterButtonsContainerActive: "chat__footer-buttons-container_active",
+  signinInputErrorActive: "signin__input-error_active",
+  signupInputErrorActive: "signup__input-error_active",
 };
 
 export const elements = {

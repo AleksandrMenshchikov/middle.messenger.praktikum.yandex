@@ -144,7 +144,11 @@ var selectors = {
   chatHeaderDeleteUser: ".chat__header-delete-user",
   popupAddUserIconClose: ".popup-add-user__icon-close",
   popupDeleteUserIconClose: ".popup-delete-user__icon-close",
-  chatFooterButtonSelect: ".chat__footer-button-select"
+  chatFooterButtonSelect: ".chat__footer-button-select",
+  signinTemplate: "#signin-template",
+  signupTemplate: "#signup-template",
+  rootSignin: ".root-signin",
+  rootSignup: ".root-signup"
 };
 exports.selectors = selectors;
 var classes = (_classes = {
@@ -162,7 +166,7 @@ var classes = (_classes = {
   peopleSearchInputActive: "people__search-input_active",
   peopleSearchLoupeActive: "people__search-loupe_active",
   peopleSearchCloseActive: "people__search-close_active"
-}, _defineProperty(_classes, "peopleSearchInputActive", "people__search-input_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupAddUserActive", "popup-add-user_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupDeleteUserActive", "popup-delete-user_active"), _defineProperty(_classes, "chatFooterButtonsContainerActive", "chat__footer-buttons-container_active"), _classes);
+}, _defineProperty(_classes, "peopleSearchInputActive", "people__search-input_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupAddUserActive", "popup-add-user_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupDeleteUserActive", "popup-delete-user_active"), _defineProperty(_classes, "chatFooterButtonsContainerActive", "chat__footer-buttons-container_active"), _defineProperty(_classes, "signinInputErrorActive", "signin__input-error_active"), _defineProperty(_classes, "signupInputErrorActive", "signup__input-error_active"), _classes);
 exports.classes = classes;
 var elements = {
   chatFooterInputText: document.querySelector(".chat__footer-input-text"),
@@ -10702,7 +10706,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56211" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57725" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
