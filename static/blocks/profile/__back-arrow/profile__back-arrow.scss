@@ -13,6 +13,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s;
+  background: url(/images/arrow-big-left.svg) no-repeat center;
 }
 
 .profile__back-arrow:hover {

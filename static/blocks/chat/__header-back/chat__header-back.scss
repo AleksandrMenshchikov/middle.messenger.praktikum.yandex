@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   transition: opacity 0.2s;
+  background: url(/images/arrow-big-left.svg) no-repeat center;
 }
 
 .chat__header-back:hover {
