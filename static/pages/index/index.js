@@ -1,156 +1,13 @@
-import { selectors } from "../../utils/utils";
-
+import { selectors, classes, elements } from "../../utils/utils";
 const autosize = require("autosize");
-autosize(selectors.chatFooterInputText);
+const Handlebars = require("handlebars");
 
+// autosize
+autosize(elements.chatFooterInputText);
+//
 
-
-const profile = document.querySelector(".profile");
-const profileEditor = document.querySelector(".profile__editor");
-const profileConfirm = document.querySelector(".profile__confirm");
-const profileConfirmPassword = document.querySelector(
-  ".profile__confirm-password"
-);
-const profileFormPassword = document.querySelector(".profile__form-password");
-const profileForm = document.querySelector(".profile__form");
-const popupAvatarFileNameLoaded = document.querySelector(
-  ".popup-avatar__file-name-loaded"
-);
-const popupAvatarTitle = document.querySelector(".popup-avatar__title");
-
-const popupAvatar = document.querySelector(".popup-avatar");
-const profileAvatar = document.querySelector(".profile__avatar");
-const peopleProfileInner = document.querySelector(".people__profile-inner");
-const profileBackArrow = document.querySelector(".profile__back-arrow");
-const popupAvatarForm = document.querySelector(".popup-avatar__form");
-const peopleSearchInput = document.querySelector(".people__search-input");
-const peopleSearchLoupe = document.querySelector(".people__search-loupe");
-const peopleSearchClose = document.querySelector(".people__search-close");
-const chatHeaderButtonDots = document.querySelector(
-  ".chat__header-button-dots"
-);
-const chatHeaderAcceptUser = document.querySelector(
-  ".chat__header-accept-user"
-);
-const popupAddUser = document.querySelector(".popup-add-user");
-const popupDeleteUser = document.querySelector(".popup-delete-user");
-const chatFooterButtonSelect = document.querySelector(
-  ".chat__footer-button-select"
-);
-const chatFooterButtonsContainer = document.querySelector(
-  ".chat__footer-buttons-container"
-);
-
-import Handlebars from "../../vendors/handlebars/handlebars-v4.7.7";
-
-function handleClickButtonProfile(evt) {
-  if (evt.target.closest(".people__profile-inner")) {
-    profile.classList.add("profile_active");
-  }
-}
-
-function handleClickButtonProfileBack(evt) {
-  if (evt.target.closest(".profile__back-arrow")) {
-    profile.classList.remove("profile_active");
-  }
-}
-
-function handleClickProfileEditor(evt) {
-  if (evt.target.classList.contains("profile__editor-info")) {
-    evt.target
-      .closest(".profile__editor")
-      .classList.remove("profile__editor_active");
-    profileConfirm.classList.add("profile__confirm_active");
-  } else if (evt.target.classList.contains("profile__editor-password")) {
-    evt.target
-      .closest(".profile__editor")
-      .classList.remove("profile__editor_active");
-    profileConfirmPassword.classList.add("profile__confirm_active");
-    profileFormPassword.classList.add("profile__form-password_active");
-    profileForm.classList.remove("profile__form_active");
-  }
-}
-
-function handleClickProfileConfirm(evt) {
-  if (evt.target.classList.contains("profile__confirm-button_theme_red")) {
-    profileConfirm.classList.remove("profile__confirm_active");
-    profileEditor.classList.add("profile__editor_active");
-    profileFormPassword.classList.remove("profile__form-password_active");
-    profileForm.classList.add("profile__form_active");
-  }
-}
-
-function handleClickProfileConfirmPassword(evt) {
-  if (
-    evt.target.classList.contains("profile__confirm-button-password_theme_red")
-  ) {
-    profileConfirm.classList.remove("profile__confirm_active");
-    profileEditor.classList.add("profile__editor_active");
-    profileFormPassword.classList.remove("profile__form-password_active");
-    profileForm.classList.add("profile__form_active");
-  }
-}
-
-function handleClickPopupAvatarClose(evt) {
-  if (
-    evt.target.classList.contains("popup-avatar_active") ||
-    evt.target.closest(".popup-avatar__icon-close")
-  ) {
-    popupAvatar.classList.remove("popup-avatar_active");
-  }
-}
-
-function handleClickProfileAvatarOpen(evt) {
-  popupAvatar.classList.add("popup-avatar_active");
-}
-
-peopleProfileInner.addEventListener("click", handleClickButtonProfile);
-profileBackArrow.addEventListener("click", handleClickButtonProfileBack);
-profileAvatar.addEventListener("click", handleClickProfileAvatarOpen);
-popupAvatar.addEventListener("click", handleClickPopupAvatarClose);
-profileEditor.addEventListener("click", handleClickProfileEditor);
-profileConfirm.addEventListener("click", handleClickProfileConfirm);
-profileConfirmPassword.addEventListener(
-  "click",
-  handleClickProfileConfirmPassword
-);
-
-popupAvatarForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const input = evt.target.querySelector(".popup-avatar__input");
-  const inputError = evt.target.querySelector(".popup-avatar__input-error");
-  input.addEventListener("change", () => {
-    const fileName = Array.from(input.files)[0].name;
-    if (fileName) {
-      popupAvatarFileNameLoaded.textContent = fileName;
-      popupAvatarTitle.textContent = "Файл загружен";
-      inputError.classList.remove("popup-avatar__input-error_active");
-    } else {
-      popupAvatarTitle.textContent = "Ошибка, попробуйте ещё раз";
-      popupAvatarTitle.style.color = "#ff2f2f";
-    }
-  });
-  if (!evt.target.checkValidity()) {
-    inputError.classList.add("popup-avatar__input-error_active");
-  } else {
-    inputError.classList.remove("popup-avatar__input-error_active");
-  }
-});
-
-peopleSearchInput.addEventListener("focus", (evt) => {
-  evt.target.classList.add("people__search-input_active");
-  peopleSearchLoupe.classList.add("people__search-loupe_active");
-  peopleSearchClose.classList.add("people__search-close_active");
-});
-
-peopleSearchInput.addEventListener("blur", (evt) => {
-  evt.target.classList.remove("people__search-input_active");
-  evt.target.value = "";
-  peopleSearchLoupe.classList.remove("people__search-loupe_active");
-  peopleSearchClose.classList.remove("people__search-close_active");
-});
-
-const source = document.querySelector("#people-list-template").innerHTML;
+// Handlebars
+const source = document.querySelector(selectors.peopleListTemplate).innerHTML;
 const template = Handlebars.compile(source);
 
 fetch("https://jsonplaceholder.typicode.com/users")
@@ -158,49 +15,201 @@ fetch("https://jsonplaceholder.typicode.com/users")
   .then((json) => {
     const context = { people: json };
     const html = template(context);
-    document.querySelector(".people__list").innerHTML = html;
+    document.querySelector(selectors.peopleList).innerHTML = html;
   });
+//
 
-chatHeaderButtonDots.addEventListener("click", (evt) => {
-  if (evt.target.closest(".chat__header-button-dots")) {
-    chatHeaderAcceptUser.classList.toggle("chat__header-accept-user_active");
+// scrollIntoView
+document.querySelector(selectors.chatMessage).scrollIntoView(false);
+//
+
+// handlers events
+function handleClickButtonProfile(evt) {
+  if (evt.target.closest(selectors.peopleProfileInner)) {
+    elements.profile.classList.add(classes.profileActive);
   }
-});
+}
 
-chatHeaderAcceptUser.addEventListener("click", (evt) => {
-  if (evt.target.closest(".chat__header-add-user")) {
-    popupAddUser.classList.add("popup-add-user_active");
-    chatHeaderAcceptUser.classList.remove("chat__header-accept-user_active");
-  } else if (evt.target.closest(".chat__header-delete-user")) {
-    popupDeleteUser.classList.add("popup-delete-user_active");
-    chatHeaderAcceptUser.classList.remove("chat__header-accept-user_active");
+function handleClickButtonProfileBack(evt) {
+  if (evt.target.closest(selectors.profileBackArrow)) {
+    elements.profile.classList.remove(classes.profileActive);
   }
-});
+}
 
-popupAddUser.addEventListener("click", (evt) => {
+function handleClickProfileEditor(evt) {
+  if (evt.target.classList.contains(classes.profileEditorInfo)) {
+    evt.target
+      .closest(selectors.profileEditor)
+      .classList.remove(classes.profileEditorActive);
+    elements.profileConfirm.classList.add(classes.profileConfirmActive);
+  } else if (evt.target.classList.contains(classes.profileEditorPassword)) {
+    evt.target
+      .closest(selectors.profileEditor)
+      .classList.remove(classes.profileEditorActive);
+    elements.profileConfirmPassword.classList.add(classes.profileConfirmActive);
+    elements.profileFormPassword.classList.add(
+      classes.profileFormPasswordActive
+    );
+    elements.profileForm.classList.remove(classes.profileFormActive);
+  }
+}
+
+function handleClickProfileConfirm(evt) {
+  if (evt.target.classList.contains(classes.profileConfirmButtonThemeRed)) {
+    elements.profileConfirm.classList.remove(classes.profileConfirmActive);
+    elements.profileEditor.classList.add(classes.profileEditorActive);
+    elements.profileFormPassword.classList.remove(
+      classes.profileFormPasswordActive
+    );
+    elements.profileForm.classList.add(classes.profileFormActive);
+  }
+}
+
+function handleClickProfileConfirmPassword(evt) {
   if (
-    evt.target.classList.contains("popup-add-user_active") ||
-    evt.target.closest(".popup-add-user__icon-close")
+    evt.target.classList.contains(classes.profileConfirmButtonPasswordThemeRed)
   ) {
-    popupAddUser.classList.remove("popup-add-user_active");
+    elements.profileConfirm.classList.remove(classes.profileConfirmActive);
+    elements.profileEditor.classList.add(classes.profileEditorActive);
+    elements.profileFormPassword.classList.remove(
+      classes.profileFormPasswordActive
+    );
+    elements.profileForm.classList.add(classes.profileFormActive);
   }
-});
+}
 
-popupDeleteUser.addEventListener("click", (evt) => {
+function handleClickPopupAvatarClose(evt) {
   if (
-    evt.target.classList.contains("popup-delete-user_active") ||
-    evt.target.closest(".popup-delete-user__icon-close")
+    evt.target.classList.contains(classes.popupAvatarActive) ||
+    evt.target.closest(selectors.popupAvatarIconClose)
   ) {
-    popupDeleteUser.classList.remove("popup-delete-user_active");
+    elements.popupAvatar.classList.remove(classes.popupAvatarActive);
   }
-});
+}
 
-chatFooterButtonSelect.addEventListener("click", (evt) => {
-  if (evt.target.closest(".chat__footer-button-select")) {
-    chatFooterButtonsContainer.classList.toggle(
-      "chat__footer-buttons-container_active"
+function handleClickProfileAvatarOpen() {
+  elements.popupAvatar.classList.add(classes.popupAvatarActive);
+}
+
+function handleSubmitAvatarForm(evt) {
+  evt.preventDefault();
+  const input = evt.target.querySelector(selectors.popupAvatarInput);
+  const inputError = evt.target.querySelector(selectors.popupAvatarInputError);
+  input.addEventListener("change", () => {
+    const fileName = Array.from(input.files)[0].name;
+    if (fileName) {
+      elements.popupAvatarFileNameLoaded.textContent = fileName;
+      elements.popupAvatarTitle.textContent = "Файл загружен";
+      inputError.classList.remove(classes.popupAvatarInputErrorActive);
+    } else {
+      elements.popupAvatarTitle.textContent = "Ошибка, попробуйте ещё раз";
+      elements.popupAvatarTitle.style.color = "#ff2f2f";
+    }
+  });
+  if (!evt.target.checkValidity()) {
+    inputError.classList.add(classes.popupAvatarInputErrorActive);
+  } else {
+    inputError.classList.remove(classes.popupAvatarInputErrorActive);
+  }
+}
+
+function handleFocusPeopleSearchInput(evt) {
+  evt.target.classList.add(classes.peopleSearchInputActive);
+  elements.peopleSearchLoupe.classList.add(classes.peopleSearchLoupeActive);
+  elements.peopleSearchClose.classList.add(classes.peopleSearchCloseActive);
+}
+
+function handleBlurPeopleSearchInput(evt) {
+  evt.target.classList.remove(classes.peopleSearchInputActive);
+  evt.target.value = "";
+  elements.peopleSearchLoupe.classList.remove(classes.peopleSearchLoupeActive);
+  elements.peopleSearchClose.classList.remove(classes.peopleSearchCloseActive);
+}
+
+function handleClickChatHeaderButtonDots(evt) {
+  if (evt.target.closest(selectors.chatHeaderButtonDots)) {
+    elements.chatHeaderAcceptUser.classList.toggle(
+      classes.chatHeaderAcceptUserActive
     );
   }
-});
+}
 
-document.querySelector(".chat__message").scrollIntoView(false);
+function handleClickChatHeaderAcceptUser(evt) {
+  if (evt.target.closest(selectors.chatHeaderAddUser)) {
+    elements.popupAddUser.classList.add(classes.popupAddUserActive);
+    elements.chatHeaderAcceptUser.classList.remove(
+      classes.chatHeaderAcceptUserActive
+    );
+  } else if (evt.target.closest(selectors.chatHeaderDeleteUser)) {
+    elements.popupDeleteUser.classList.add(classes.popupDeleteUserActive);
+    elements.chatHeaderAcceptUser.classList.remove(
+      classes.chatHeaderAcceptUserActive
+    );
+  }
+}
+
+function handleClickPopupAddUser(evt) {
+  if (
+    evt.target.classList.contains(classes.popupAddUserActive) ||
+    evt.target.closest(selectors.popupAddUserIconClose)
+  ) {
+    elements.popupAddUser.classList.remove(classes.popupAddUserActive);
+  }
+}
+
+function handleClickPopupDeleteUser(evt) {
+  if (
+    evt.target.classList.contains(classes.popupDeleteUserActive) ||
+    evt.target.closest(selectors.popupDeleteUserIconClose)
+  ) {
+    elements.popupDeleteUser.classList.remove(classes.popupDeleteUserActive);
+  }
+}
+
+function handleClickChatFooterButtonSelect(evt) {
+  if (evt.target.closest(selectors.chatFooterButtonSelect)) {
+    elements.chatFooterButtonsContainer.classList.toggle(
+      classes.chatFooterButtonsContainerActive
+    );
+  }
+}
+//
+
+// event listeners
+elements.peopleProfileInner.addEventListener("click", handleClickButtonProfile);
+elements.profileBackArrow.addEventListener(
+  "click",
+  handleClickButtonProfileBack
+);
+elements.profileAvatar.addEventListener("click", handleClickProfileAvatarOpen);
+elements.popupAvatar.addEventListener("click", handleClickPopupAvatarClose);
+elements.profileEditor.addEventListener("click", handleClickProfileEditor);
+elements.profileConfirm.addEventListener("click", handleClickProfileConfirm);
+elements.profileConfirmPassword.addEventListener(
+  "click",
+  handleClickProfileConfirmPassword
+);
+elements.popupAvatarForm.addEventListener("submit", handleSubmitAvatarForm);
+elements.peopleSearchInput.addEventListener(
+  "focus",
+  handleFocusPeopleSearchInput
+);
+elements.peopleSearchInput.addEventListener(
+  "blur",
+  handleBlurPeopleSearchInput
+);
+elements.chatHeaderButtonDots.addEventListener(
+  "click",
+  handleClickChatHeaderButtonDots
+);
+elements.chatHeaderAcceptUser.addEventListener(
+  "click",
+  handleClickChatHeaderAcceptUser
+);
+elements.popupAddUser.addEventListener("click", handleClickPopupAddUser);
+elements.popupDeleteUser.addEventListener("click", handleClickPopupDeleteUser);
+elements.chatFooterButtonSelect.addEventListener(
+  "click",
+  handleClickChatFooterButtonSelect
+);
+//

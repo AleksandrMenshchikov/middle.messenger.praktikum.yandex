@@ -123,12 +123,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.selectors = void 0;
+exports.elements = exports.classes = exports.selectors = void 0;
+
+var _classes;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var selectors = {
-  chatFooterInputText: document.querySelector(".chat__footer-input-text"),
-  inputSignupTel: document.querySelector("input[name='signup-tel']")
+  peopleListTemplate: "#people-list-template",
+  peopleList: ".people__list",
+  peopleProfileInner: ".people__profile-inner",
+  profileBackArrow: ".profile__back-arrow",
+  profileEditor: ".profile__editor",
+  chatMessage: ".chat__message",
+  popupAvatarIconClose: ".popup-avatar__icon-close",
+  popupAvatarInput: ".popup-avatar__input",
+  popupAvatarInputError: ".popup-avatar__input-error",
+  chatHeaderButtonDots: ".chat__header-button-dots",
+  chatHeaderAddUser: ".chat__header-add-user",
+  chatHeaderDeleteUser: ".chat__header-delete-user",
+  popupAddUserIconClose: ".popup-add-user__icon-close",
+  popupDeleteUserIconClose: ".popup-delete-user__icon-close",
+  chatFooterButtonSelect: ".chat__footer-button-select"
 };
 exports.selectors = selectors;
+var classes = (_classes = {
+  profileActive: "profile_active",
+  profileEditorInfo: "profile__editor-info",
+  profileEditorActive: "profile__editor_active",
+  profileConfirmActive: "profile__confirm_active",
+  profileEditorPassword: "profile__editor-password",
+  profileFormPasswordActive: "profile__form-password_active",
+  profileFormActive: "profile__form_active",
+  profileConfirmButtonThemeRed: "profile__confirm-button_theme_red",
+  profileConfirmButtonPasswordThemeRed: "profile__confirm-button-password_theme_red",
+  popupAvatarActive: "popup-avatar_active",
+  popupAvatarInputErrorActive: "popup-avatar__input-error_active",
+  peopleSearchInputActive: "people__search-input_active",
+  peopleSearchLoupeActive: "people__search-loupe_active",
+  peopleSearchCloseActive: "people__search-close_active"
+}, _defineProperty(_classes, "peopleSearchInputActive", "people__search-input_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupAddUserActive", "popup-add-user_active"), _defineProperty(_classes, "chatHeaderAcceptUserActive", "chat__header-accept-user_active"), _defineProperty(_classes, "popupDeleteUserActive", "popup-delete-user_active"), _defineProperty(_classes, "chatFooterButtonsContainerActive", "chat__footer-buttons-container_active"), _classes);
+exports.classes = classes;
+var elements = {
+  chatFooterInputText: document.querySelector(".chat__footer-input-text"),
+  inputSignupTel: document.querySelector("input[name='signup-tel']"),
+  profileEditor: document.querySelector(".profile__editor"),
+  profile: document.querySelector(".profile"),
+  profileConfirm: document.querySelector(".profile__confirm"),
+  profileConfirmPassword: document.querySelector(".profile__confirm-password"),
+  profileFormPassword: document.querySelector(".profile__form-password"),
+  profileForm: document.querySelector(".profile__form"),
+  popupAvatarFileNameLoaded: document.querySelector(".popup-avatar__file-name-loaded"),
+  popupAvatarTitle: document.querySelector(".popup-avatar__title"),
+  popupAvatar: document.querySelector(".popup-avatar"),
+  profileAvatar: document.querySelector(".profile__avatar"),
+  peopleProfileInner: document.querySelector(".people__profile-inner"),
+  profileBackArrow: document.querySelector(".profile__back-arrow"),
+  popupAvatarForm: document.querySelector(".popup-avatar__form"),
+  peopleSearchInput: document.querySelector(".people__search-input"),
+  peopleSearchLoupe: document.querySelector(".people__search-loupe"),
+  peopleSearchClose: document.querySelector(".people__search-close"),
+  chatHeaderButtonDots: document.querySelector(".chat__header-button-dots"),
+  chatHeaderAcceptUser: document.querySelector(".chat__header-accept-user"),
+  popupAddUser: document.querySelector(".popup-add-user"),
+  popupDeleteUser: document.querySelector(".popup-delete-user"),
+  chatFooterButtonSelect: document.querySelector(".chat__footer-button-select"),
+  chatFooterButtonsContainer: document.querySelector(".chat__footer-buttons-container")
+};
+exports.elements = elements;
 },{}],"../node_modules/cleave.js/dist/cleave.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -1863,7 +1925,7 @@ var Cleave = require("cleave.js/dist/cleave");
 
 require("cleave.js/dist/addons/cleave-phone.ru");
 
-new Cleave(_utils.selectors.inputSignupTel, {
+new Cleave(_utils.elements.inputSignupTel, {
   phone: true,
   phoneRegionCode: "ru"
 });
@@ -1895,7 +1957,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62878" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65115" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
