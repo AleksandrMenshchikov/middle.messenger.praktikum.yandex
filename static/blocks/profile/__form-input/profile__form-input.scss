@@ -10,13 +10,12 @@
   min-height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
+  outline: none;
 }
 
 .profile__form-input:-webkit-autofill {
   box-shadow: 0 0 0 30px #fff inset !important;
 }
 
-.profile__form-input:not(:focus) {
-  padding: 0 0 0 5px;
-}
+
 
