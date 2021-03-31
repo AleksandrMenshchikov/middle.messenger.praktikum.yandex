@@ -147,8 +147,12 @@ var selectors = {
   chatFooterButtonSelect: ".chat__footer-button-select",
   signinTemplate: "#signin-template",
   signupTemplate: "#signup-template",
+  template500: "#template-500",
+  template404: "#template-404",
   rootSignin: ".root-signin",
-  rootSignup: ".root-signup"
+  rootSignup: ".root-signup",
+  root500: ".root-500",
+  root404: ".root-404"
 };
 exports.selectors = selectors;
 var classes = (_classes = {
@@ -12008,7 +12012,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56777" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

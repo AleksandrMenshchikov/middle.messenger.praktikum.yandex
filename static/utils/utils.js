@@ -16,8 +16,12 @@ export const selectors = {
   chatFooterButtonSelect: ".chat__footer-button-select",
   signinTemplate: "#signin-template",
   signupTemplate: "#signup-template",
+  template500: "#template-500",
+  template404: "#template-404",
   rootSignin: ".root-signin",
   rootSignup: ".root-signup",
+  root500: ".root-500",
+  root404: ".root-404",
 };
 
 export const classes = {
