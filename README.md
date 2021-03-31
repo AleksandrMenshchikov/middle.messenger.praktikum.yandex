@@ -2,7 +2,7 @@
 
 Ссылка на сайт https://jovial-liskov-072767.netlify.app/
 
-Ссылка на Pull request https://github.com/AleksandrMenshchikov/middle.messenger.praktikum.yandex/pull/2
+Ссылка на Pull request https://github.com/AleksandrMenshchikov/middle.messenger.praktikum.yandex/pull/1
 Ссылка на Pull request https://github.com/AleksandrMenshchikov/middle.messenger.praktikum.yandex/pull/2
 
 <!-- ### Откройте pull request изменений из ветки dev (вы можете назвать иначе) в ветку main. ВАЖНО: pull request должен называться "Sprint i", где i — номер спринта.
