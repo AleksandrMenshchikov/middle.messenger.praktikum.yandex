@@ -4,7 +4,7 @@
   visibility: hidden;
   margin-left: -2px;
   height: 32px;
-  background-color: #efefef;
+  background-color: $light-gray-color;
   border-radius: 5px;
   border: 1px solid #efefef;
   padding: 0;
@@ -23,7 +23,7 @@
   width: 14px;
   height: 2px;
   border-radius: 2px;
-  background-color: #999;
+  background-color: $dark-gray-color;
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
@@ -35,7 +35,7 @@
   width: 14px;
   height: 2px;
   border-radius: 2px;
-  background-color: #999;
+  background-color: $dark-gray-color;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 

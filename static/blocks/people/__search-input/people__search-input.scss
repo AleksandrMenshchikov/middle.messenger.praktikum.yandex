@@ -1,7 +1,7 @@
 .people__search-input {
   height: 32px;
   border: none;
-  background-color: #efefef;
+  background-color: $light-gray-color;
   border-radius: 5px;
   font-family: $font-inter;
   font-weight: 500;
@@ -15,7 +15,7 @@
 }
 
 .people__search-input::placeholder {
-  color: #999;
+  color: $dark-gray-color;
   transition: all 0.2s;
   font-family: $font-inter;
   font-weight: 500;

@@ -3,13 +3,13 @@
   width: calc(100% - 60px);
   height: 35px;
   display: block;
-  color: #fff;
+  color: $white-color;
   font-family: $font-inter;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
   cursor: pointer;
-  background-color: #3369f3;
+  background-color: $blue-color;
   border-radius: 8px;
   border-style: none;
   transition: opacity 0.2s;

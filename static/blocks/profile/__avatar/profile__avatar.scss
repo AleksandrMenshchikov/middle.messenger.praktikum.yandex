@@ -3,7 +3,7 @@
   height: 130px;
   margin: 60px auto 0;
   border-radius: 50%;
-  background-color: #efefef;
+  background-color: $light-gray-color;
   background: url("/images/background-avatar.png") no-repeat center / cover,
     #efefef;
   cursor: pointer;
@@ -19,7 +19,7 @@
   font-weight: 500;
   font-size: 13px;
   line-height: 14px;
-  color: #fff;
+  color: $white-color;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
