@@ -1,9 +1,10 @@
 import { selectors, classes } from "../../utils/constants";
 import { formData } from "../../utils/utils";
+import { signupTemplate } from "../../templates/signup-template";
 const Handlebars = require("handlebars");
 
 // Handlebars
-const source = document.querySelector(selectors.signupTemplate).innerHTML;
+const source = signupTemplate;
 const template = Handlebars.compile(source);
 const html = template();
 document.querySelector(selectors.rootSignup).innerHTML = html;
@@ -39,7 +40,7 @@ function handleFormSubmit() {
         classes.signupInputErrorActive
       );
       formElements[6].nextElementSibling.textContent = "";
-      formData(form)
+      formData(form);
     } else if (
       form.checkValidity() &&
       formElements[5].value !== formElements[6].value

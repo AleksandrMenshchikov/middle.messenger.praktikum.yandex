@@ -1,9 +1,10 @@
 import { selectors, classes } from "../../utils/constants";
 import { formData } from "../../utils/utils";
+import { signinTemplate } from "../../templates/signin-template.js";
 const Handlebars = require("handlebars");
 
 // Handlebars
-const source = document.querySelector(selectors.signinTemplate).innerHTML;
+const source = signinTemplate;
 const template = Handlebars.compile(source);
 const html = template();
 document.querySelector(selectors.rootSignin).innerHTML = html;

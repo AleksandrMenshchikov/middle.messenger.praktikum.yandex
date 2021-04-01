@@ -1,8 +1,9 @@
 import { selectors, classes, elements } from "../../utils/constants";
+import { peopleListTemplate } from "../../templates/people-list-template";
 const Handlebars = require("handlebars");
 
 // Handlebars
-const source = document.querySelector(selectors.peopleListTemplate).innerHTML;
+const source = peopleListTemplate;
 const template = Handlebars.compile(source);
 
 fetch("https://jsonplaceholder.typicode.com/users")

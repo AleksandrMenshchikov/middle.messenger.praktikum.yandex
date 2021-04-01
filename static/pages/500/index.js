@@ -1,8 +1,9 @@
 import { selectors } from "../../utils/constants";
+import { template500 } from "../../templates/template-500";
 const Handlebars = require("handlebars");
 
 // Handlebars
-const source = document.querySelector(selectors.template500).innerHTML;
+const source = template500;
 const template = Handlebars.compile(source);
 const html = template();
 document.querySelector(selectors.root500).innerHTML = html;
