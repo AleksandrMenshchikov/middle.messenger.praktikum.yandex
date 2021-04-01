@@ -4,7 +4,8 @@
   margin: 60px auto 0;
   border-radius: 50%;
   background-color: #efefef;
-  background: url("/images/background-avatar.png") no-repeat center / cover, #efefef;
+  background: url("/images/background-avatar.png") no-repeat center / cover,
+    #efefef;
   cursor: pointer;
   position: relative;
 }
@@ -46,4 +47,3 @@
 .profile__avatar:hover.profile__avatar::before {
   opacity: 1;
 }
-

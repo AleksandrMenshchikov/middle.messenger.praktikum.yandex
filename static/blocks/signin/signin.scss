@@ -1,10 +1,10 @@
 @import "./__title/signin__title.scss";
-@import './__label/signin__label.scss';
-@import './__input/signin__input.scss';
-@import './__input-error/signin__input-error.scss';
-@import './__input-error/_active/signin__input-error_active.scss';
-@import './__button-submit/signin__button-submit.scss';
-@import './__link/signin__link.scss';
+@import "./__label/signin__label.scss";
+@import "./__input/signin__input.scss";
+@import "./__input-error/signin__input-error.scss";
+@import "./__input-error/_active/signin__input-error_active.scss";
+@import "./__button-submit/signin__button-submit.scss";
+@import "./__link/signin__link.scss";
 
 .signin {
   width: calc(100% - 20px);
