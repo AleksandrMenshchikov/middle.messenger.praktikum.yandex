@@ -1,10 +1,5 @@
 import { selectors, classes, elements } from "../../utils/utils";
-const autosize = require("autosize");
 const Handlebars = require("handlebars");
-
-// autosize
-autosize(elements.chatFooterInputText);
-//
 
 // Handlebars
 const source = document.querySelector(selectors.peopleListTemplate).innerHTML;

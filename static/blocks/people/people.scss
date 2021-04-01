@@ -30,8 +30,9 @@
   background-color: #fbfbfb;
   transition: width 0.2s;
   box-sizing: border-box;
-  overflow-y: scroll;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 640px) {

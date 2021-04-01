@@ -1,20 +1,11 @@
 import { selectors, classes } from "../../utils/utils";
 const Handlebars = require("handlebars");
-const Cleave = require("cleave.js/dist/cleave");
-require("cleave.js/dist/addons/cleave-phone.ru");
 
 // Handlebars
 const source = document.querySelector(selectors.signupTemplate).innerHTML;
 const template = Handlebars.compile(source);
 const html = template();
 document.querySelector(selectors.rootSignup).innerHTML = html;
-//
-
-// Cleave
-new Cleave(document.querySelector("input[name='signup-tel']"), {
-  phone: true,
-  phoneRegionCode: "ru",
-});
 //
 
 function handleFormSubmit() {
