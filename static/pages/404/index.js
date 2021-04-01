@@ -1,4 +1,4 @@
-import { selectors } from "../../utils/utils";
+import { selectors } from "../../utils/constants";
 const Handlebars = require("handlebars");
 
 // Handlebars

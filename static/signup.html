@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
     <link rel="stylesheet" href="./pages/signup/index.scss" />
     <title>Регистрация</title>
   </head>
@@ -15,7 +18,7 @@
         <h2 class="signup__title">
           Регистрация
         </h2>
-        <form name="form-signup" novalidate>
+        <form class="signup__form" name="form-signup" novalidate>
           <label for="signup-email" class="signup__label">
             Почта
           </label>
@@ -29,7 +32,7 @@
             autocomplete="email"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-email-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-login" class="signup__label">
@@ -46,7 +49,7 @@
             autocomplete="username"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-login-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-name" class="signup__label">
@@ -63,7 +66,7 @@
             autocomplete="given-name"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-name-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-surname" class="signup__label">
@@ -80,7 +83,7 @@
             autocomplete="family-name"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-surname-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-tel" class="signup__label">
@@ -93,9 +96,10 @@
             id="signup-tel"
             name="signup-tel"
             autocomplete="tel"
+            maxlength="100"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-tel-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-password" class="signup__label">
@@ -112,7 +116,7 @@
             maxlength="100"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-password-error" class="signup__input-error">
             Ошибка
           </span>
           <label for="signup-new-password" class="signup__label">
@@ -129,7 +133,7 @@
             maxlength="100"
             required
           />
-          <span class="signup__input-error">
+          <span id="signup-repeat-password-error" class="signup__input-error">
             Ошибка
           </span>
           <button class="signup__button-submit" type="submit">

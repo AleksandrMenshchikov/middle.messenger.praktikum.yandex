@@ -1,4 +1,5 @@
-import { selectors, classes } from "../../utils/utils";
+import { selectors, classes } from "../../utils/constants";
+import { formData } from "../../utils/utils";
 const Handlebars = require("handlebars");
 
 // Handlebars
@@ -9,8 +10,8 @@ document.querySelector(selectors.rootSignup).innerHTML = html;
 //
 
 function handleFormSubmit() {
-  const form = document.forms[0];
-  const formElements = document.forms[0].elements;
+  const form = document.querySelector(".signup__form");
+  const formElements = form.elements;
 
   Array.from(formElements).forEach((item) => {
     if (item.nodeName === "INPUT") {
@@ -38,13 +39,7 @@ function handleFormSubmit() {
         classes.signupInputErrorActive
       );
       formElements[6].nextElementSibling.textContent = "";
-      const obj = {};
-      Array.from(formElements).forEach((elem) => {
-        if (elem.nodeName === "INPUT") {
-          obj[elem.name] = elem.value;
-        }
-      });
-      console.log(obj);
+      formData(form)
     } else if (
       form.checkValidity() &&
       formElements[5].value !== formElements[6].value
