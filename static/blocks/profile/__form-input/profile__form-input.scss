@@ -1,0 +1,18 @@
+.profile__form-input {
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  width: 100%;
+  border: none;
+  text-align: end;
+  padding: 0 5px;
+  min-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  outline: none;
+}
+
+.profile__form-input:-webkit-autofill {
+  box-shadow: 0 0 0 30px #fff inset !important;
+}

@@ -1,0 +1,13 @@
+.chat__initial-message {
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: $dark-gray-color;
+  text-align: center;
+  margin: auto;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}

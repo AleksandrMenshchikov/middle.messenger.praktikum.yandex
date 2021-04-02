@@ -1,0 +1,45 @@
+@import "./__back/profile__back.scss";
+@import "./__back-arrow/profile__back-arrow.scss";
+@import "./__info/profile__info.scss";
+@import "./__info/profile__info.scss";
+@import "./__avatar/profile__avatar.scss";
+@import "./__name/profile__name.scss";
+@import "./__form/profile__form.scss";
+@import "./__form-label/profile__form-label.scss";
+@import "./__form-input/profile__form-input.scss";
+@import "./__form-input-wrapper/profile__form-input-wrapper.scss";
+@import "./__editor/profile__editor.scss";
+@import "./__editor-info-wrapper/profile__editor-info-wrapper.scss";
+@import "./__editor-info/profile__editor-info.scss";
+@import "./__editor-password/profile__editor-password.scss";
+@import "./__editor-exit/profile__editor-exit.scss";
+@import "./__confirm/profile__confirm.scss";
+@import "./__confirm-button/profile__confirm-button.scss";
+@import "./__confirm-button/_theme_red/profile__confirm-button_theme_red.scss";
+@import "./__editor/__editor_active/profile__editor_active.scss";
+@import "./__form-password/profile__form-password.scss";
+@import "./__form-password/_active/profile__form-password_active.scss";
+@import "./__form/_active/profile__form_active.scss";
+@import "./__confirm-password/profile__confirm-password.scss";
+@import "./__confirm-button-password/profile__confirm-button-password.scss";
+@import "./__confirm-button-password/_theme_red/profile__confirm-button-password_theme_red.scss";
+@import "./__confirm/__confirm_active/profile__confirm_active.scss";
+
+.profile {
+  background-color: $white-color;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 0%;
+  margin-right: -2px;
+  transition: width 0.5s;
+  height: 100vh;
+  display: flex;
+}
+
+@media screen and (max-width: 640px) {
+  .profile {
+    flex-direction: column;
+  }
+}

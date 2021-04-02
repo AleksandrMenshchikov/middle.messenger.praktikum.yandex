@@ -1,0 +1,13 @@
+.people__search-loupe {
+  height: 32px;
+  background-color: $light-gray-color;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  min-width: 30px;
+  background: url("/images/loupe.svg") no-repeat center;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  left: calc(50% - 48px);
+  transition: all 0.2s;
+}

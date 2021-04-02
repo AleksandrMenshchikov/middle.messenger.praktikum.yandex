@@ -1,0 +1,23 @@
+@import "./__inner/popup-avatar__inner.scss";
+@import "./__title/popup-avatar__title.scss";
+@import "./__input/popup-avatar__input.scss";
+@import "./__label/popup-avatar__label.scss";
+@import "./__button/popup-avatar__button.scss";
+@import "./__file-name-loaded/popup-avatar__file-name-loaded.scss";
+@import "./__icon-close/popup-avatar__icon-close.scss";
+@import "./__input-error/popup-avatar__input-error.scss";
+@import "./__input-error/_active/popup-avatar__input-error_active.scss";
+
+.popup-avatar {
+  position: absolute;
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}

@@ -1,0 +1,16 @@
+@import "../../vendors/normalize/normalize.css";
+@import "../../vendors/fonts/stylesheet.css";
+@import "../../utils/variables.scss";
+@import "../../blocks/root/root.scss";
+@import "../../blocks/main/main.scss";
+@import "../../blocks/people/people.scss";
+@import "../../blocks/chat-container/chat-container.scss";
+@import "../../blocks/chat/chat.scss";
+@import "../../blocks/profile/profile.scss";
+@import "../../blocks/profile/_active/profile_active.scss";
+@import "../../blocks/popup-avatar/popup-avatar.scss";
+@import "../../blocks/popup-avatar/_active/popup-avatar_active.scss";
+@import "../../blocks/popup-add-user/popup-add-user.scss";
+@import "../../blocks/popup-add-user/_active/popup-add-user_active.scss";
+@import "../../blocks/popup-delete-user/popup-delete-user.scss";
+@import "../../blocks/popup-delete-user/_active/popup-delete-user_active.scss";

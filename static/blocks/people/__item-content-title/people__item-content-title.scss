@@ -1,0 +1,10 @@
+.people__item-content-title {
+  margin: 0 0 4px;
+  font-family: $font-inter;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

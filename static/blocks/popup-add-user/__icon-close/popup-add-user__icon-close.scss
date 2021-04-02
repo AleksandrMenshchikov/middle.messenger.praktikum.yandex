@@ -1,0 +1,36 @@
+.popup-add-user__icon-close {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 6px;
+  right: 6px;
+  border-radius: 50%;
+  border-style: none;
+  padding: 0;
+  background-color: $white-color;
+  cursor: pointer;
+}
+
+.popup-add-user__icon-close::after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #8d8d8d;
+  top: 49%;
+  left: 5%;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+
+.popup-add-user__icon-close::before {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 2px;
+  background-color: #8d8d8d;
+  top: 49%;
+  left: 5%;
+  transform: rotate(-45deg);
+  border-radius: 2px;
+}

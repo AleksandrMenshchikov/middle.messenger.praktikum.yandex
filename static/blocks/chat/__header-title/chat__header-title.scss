@@ -1,0 +1,11 @@
+.chat__header-title {
+  font-family: $font-inter;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: calc(100% - 130px);
+  margin: 0 0 0 10px;
+}

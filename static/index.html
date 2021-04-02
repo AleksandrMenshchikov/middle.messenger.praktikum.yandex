@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="./pages/index/index.scss" />
+    <title>Messenger</title>
+  </head>
+  <body>
+    <div class="root">
+      <main class="main root__main">
+        <section class="people">
+          <div class="people__search-wrapper">
+            <div class="people__profile">
+              <button type="button" class="people__profile-inner">
+                <span class="people__profile-text">Профиль</span>
+                <span class="people__profile-arrow"></span>
+              </button>
+            </div>
+            <form class="people__form-search" name="form-search">
+              <div class="people__search-loupe"></div>
+              <input
+                class="people__search-input"
+                placeholder="Поиск"
+                type="text"
+                name="search"
+                maxlength="100"
+              />
+              <button class="people__search-close" type="button"></button>
+            </form>
+          </div>
+
+          <ul class="people__list"></ul>
+        </section>
+        <div class="chat-container">
+          <p class="chat__initial-message">
+            Выберите чат чтобы отправить сообщение
+          </p>
+          <div class="chat__header">
+            <button type="button" class="chat__header-back"></button>
+            <img
+              class="chat__header-avatar"
+              alt="фото"
+              src="./images/background-avatar.png"
+            />
+            <h4 class="chat__header-title">Nicholas Runolfsdottir V</h4>
+            <button type="button" class="chat__header-button-dots"></button>
+            <div class="chat__header-accept-user">
+              <button type="button" class="chat__header-add-user">
+                <img src="./images/add-icon.svg" alt="иконка добавить" />
+                <span class="chat__header-add-user-text"
+                  >Добавить пользователя</span
+                >
+              </button>
+              <button type="button" class="chat__header-delete-user">
+                <img src="./images/delete-icon.svg" alt="иконка удалить" />
+                <span class="chat__header-add-user-text"
+                  >Удалить пользователя</span
+                >
+              </button>
+            </div>
+          </div>
+          <section class="chat">
+            <div class="chat__container">
+              <ul class="chat__list">
+                <li class="chat__message">
+                  <p class="chat__message-date">19 июня</p>
+                  <article class="chat__message-left-text">
+                    <span class="chat__message-left-text-inner"
+                      >Привет! Смотри, тут всплыл интересный кусок лунной
+                      космической истории — НАСА в какой-то момент попросила
+                      Хассельблад адаптировать модель SWC для полетов на Луну.
+                      Сейчас мы все знаем что астронавты летали с моделью 500 EL
+                      — и к слову говоря, все тушки этих камер все еще находятся
+                      на поверхности Луны, так как астронавты с собой забрали
+                      только кассеты с пленкой. Хассельблад в итоге адаптировал
+                      SWC для космоса, но что-то пошло не так и на ракету они
+                      так никогда и не попали. Всего их было произведено 25
+                      штук, одну из них недавно продали на аукционе за 45000
+                      евро.
+                    </span>
+                    <span class="chat__message-left-text-time">11:56</span>
+                  </article>
+                  <div class="chat__message-left-img-container">
+                    <span class="chat__message-left-img-time">11:56</span>
+                  </div>
+                  <article class="chat__message-right-text">
+                    <span class="chat__message-right-text-inner">Круто!</span>
+                    <span class="chat__message-right-text-time">12:20</span>
+                  </article>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <div class="chat__footer">
+            <form class="chat__footer-form" name="form-chat">
+              <button type="button" class="chat__footer-button-select"></button>
+              <div class="chat__footer-buttons-container">
+                <div class="chat__footer-input-container">
+                  <label
+                    tabindex="0"
+                    for="foto-and-video"
+                    class="chat__footer-label"
+                  >
+                    <img src="./images/foto-icon.svg" alt="фото иконка" />
+                    <span class="chat__footer-label-text">Фото или Видео</span>
+                  </label>
+                  <input
+                    name="foto-and-video"
+                    id="foto-and-video"
+                    type="file"
+                    class="chat__footer-input-foto-and-video"
+                    accept="image/*,video/mp4,video/x-m4v,video/*"
+                  />
+                </div>
+                <div class="chat__footer-input-container">
+                  <label
+                    tabindex="0"
+                    for="chat-footer-file"
+                    class="chat__footer-label"
+                  >
+                    <img src="./images/file-icon.svg" alt="файл иконка" />
+                    <span class="chat__footer-label-text">Файл</span>
+                  </label>
+                  <input
+                    name="chat-footer-file"
+                    id="chat-footer-file"
+                    type="file"
+                    class="chat__footer-input-foto-and-video"
+                    accept=".7z, .zip,. rar, .doc, .docx, .pdf, .rtf, .xls, .xlsx"
+                  />
+                </div>
+                <div class="chat__footer-input-container">
+                  <label tabindex="0" for="location" class="chat__footer-label">
+                    <img
+                      src="./images/location-icon.svg"
+                      alt="локация иконка"
+                    />
+                    <span class="chat__footer-label-text">Локация</span>
+                  </label>
+                  <input
+                    name="location"
+                    id="location"
+                    type="file"
+                    class="chat__footer-input-foto-and-video"
+                    accept=""
+                  />
+                </div>
+              </div>
+              <textarea
+                rows="1"
+                placeholder="Сообщение..."
+                name="chat-footer-text"
+                class="chat__footer-input-text"
+                autocomplete="off"
+                maxlength="500"
+                minlength="1"
+                required
+              ></textarea>
+              <button type="submit" class="chat__footer-button-submit"></button>
+            </form>
+          </div>
+        </div>
+        <section class="profile">
+          <div class="profile__back">
+            <button class="profile__back-arrow"></button>
+          </div>
+          <section class="profile__info">
+            <div class="profile__avatar"></div>
+            <h3 class="profile__name">Имя</h3>
+            <form
+              class="profile__form profile__form_active"
+              name="form-profile-info"
+            >
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="email">Почта</label>
+                <input
+                  placeholder="Введите почту"
+                  class="profile__form-input"
+                  name="email"
+                  id="email"
+                  type="email"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="login-profile"
+                  >Логин</label
+                >
+                <input
+                  placeholder="Введите логин"
+                  class="profile__form-input"
+                  name="login"
+                  id="login-profile"
+                  type="text"
+                  maxlength="100"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="name">Имя</label>
+                <input
+                  placeholder="Введите имя"
+                  class="profile__form-input"
+                  name="name"
+                  id="name"
+                  type="text"
+                  maxlength="100"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="surname">Фамилия</label>
+                <input
+                  placeholder="Введите фамилию"
+                  class="profile__form-input"
+                  name="surname"
+                  id="surname"
+                  type="text"
+                  maxlength="100"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="chatname"
+                  >Имя в чате</label
+                >
+                <input
+                  placeholder="Введите имя в чате"
+                  class="profile__form-input"
+                  name="chatname"
+                  id="chatname"
+                  type="text"
+                  maxlength="100"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="tel">Телефон</label>
+                <input
+                  placeholder="Введите телефон"
+                  class="profile__form-input"
+                  name="tel"
+                  id="tel"
+                  type="tel"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="profile__confirm">
+                <button type="submit" class="profile__confirm-button">
+                  Сохранить
+                </button>
+                <button
+                  type="button"
+                  class="profile__confirm-button profile__confirm-button_theme_red"
+                >
+                  Отменить
+                </button>
+              </div>
+            </form>
+            <form class="profile__form-password" name="form-profile-password">
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="old-password"
+                  >Старый пароль</label
+                >
+                <input
+                  autocomplete="off"
+                  placeholder="Введите старый пароль"
+                  class="profile__form-input"
+                  name="old-password"
+                  id="old-password"
+                  type="password"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="new-password"
+                  >Новый пароль</label
+                >
+                <input
+                  autocomplete="off"
+                  placeholder="Введите новый пароль"
+                  class="profile__form-input"
+                  name="new-password"
+                  id="new-password"
+                  type="password"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="profile__form-input-wrapper">
+                <label class="profile__form-label" for="confirm-password"
+                  >Повторите новый пароль</label
+                >
+                <input
+                  autocomplete="off"
+                  placeholder="Повторите новый пароль"
+                  class="profile__form-input"
+                  name="confirm-password"
+                  id="confirm-password"
+                  type="password"
+                  maxlength="100"
+                  required
+                />
+              </div>
+              <div class="profile__confirm-password">
+                <button type="submit" class="profile__confirm-button-password">
+                  Сохранить
+                </button>
+                <button
+                  type="button"
+                  class="profile__confirm-button-password profile__confirm-button-password_theme_red"
+                >
+                  Отменить
+                </button>
+              </div>
+            </form>
+            <div class="profile__editor profile__editor_active">
+              <div class="profile__editor-info-wrapper">
+                <button class="profile__editor-info" type="button">
+                  Изменить данные
+                </button>
+              </div>
+              <div class="profile__editor-info-wrapper">
+                <button class="profile__editor-password" type="button">
+                  Изменить пароль
+                </button>
+              </div>
+              <div class="profile__editor-info-wrapper">
+                <button class="profile__editor-exit" type="button">
+                  Выйти
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <div class="popup-avatar">
+        <div class="popup-avatar__inner">
+          <button type="button" class="popup-avatar__icon-close"></button>
+          <h3 class="popup-avatar__title">Загрузите файл</h3>
+          <form class="popup-avatar__form" name="form-avatar" novalidate>
+            <div class="popup-avatar__file-name-loaded">
+              <label class="popup-avatar__label" for="file"
+                >Выбрать файл на компьютере</label
+              >
+            </div>
+            <input
+              name="file"
+              id="file"
+              type="file"
+              accept="image/*"
+              class="popup-avatar__input"
+              required
+            />
+            <button type="submit" class="popup-avatar__button">Поменять</button>
+            <span class="popup-avatar__input-error">Нужно выбрать файл</span>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup-add-user">
+        <div class="popup-add-user__inner">
+          <button type="button" class="popup-add-user__icon-close"></button>
+          <h3 class="popup-add-user__title">Добавить пользователя</h3>
+          <form name="form-add-user">
+            <label for="login-add-user" class="popup-add-user__label"
+              >Логин</label
+            >
+            <input
+              type="text"
+              autocomplete="off"
+              id="login-add-user"
+              name="login"
+              class="popup-add-user__input"
+              required
+              minlength="3"
+              maxlength="100"
+            />
+            <button type="submit" class="popup-add-user__button">
+              Добавить
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="popup-delete-user">
+        <div class="popup-delete-user__inner">
+          <button type="button" class="popup-delete-user__icon-close"></button>
+          <h3 class="popup-delete-user__title">Удалить пользователя</h3>
+          <form name="form-delete-user">
+            <label for="login-delete-user" class="popup-delete-user__label"
+              >Логин</label
+            >
+            <input
+              type="text"
+              autocomplete="off"
+              id="login-delete-user"
+              name="login"
+              class="popup-delete-user__input"
+              required
+              minlength="3"
+              maxlength="100"
+            />
+            <button type="submit" class="popup-delete-user__button">
+              Удалить
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="./pages/index/index.js"></script>
+  </body>
+</html>

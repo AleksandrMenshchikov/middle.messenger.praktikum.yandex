@@ -1,0 +1,12 @@
+.chat__container {
+  width: calc(100% - 40px);
+  position: relative;
+  margin: auto 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .chat__container {
+    margin: auto 10px;
+    width: calc(100% - 20px);
+  }
+}

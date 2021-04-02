@@ -1,0 +1,42 @@
+@import "./__profile/people__profile.scss";
+@import "./__profile-arrow/people__profile-arrow.scss";
+@import "./__profile-inner/people__profile-inner.scss";
+@import "./__profile-text/people__profile-text.scss";
+@import "./__search-close/people__search-close.scss";
+@import "./__form-search/people__form-search.scss";
+@import "./__search-loupe/people__search-loupe.scss";
+@import "./__search-input/people__search-input.scss";
+@import "./__search-loupe/_active/people__search-loupe_active.scss";
+@import "./__search-input/_active/people__search-input_active.scss";
+@import "./__search-close/_active/people__search-close_active.scss";
+@import "./__list/people__list.scss";
+@import "./__item/people__item.scss";
+@import "./__item-inner/people__item-inner.scss";
+@import "./__item-avatar/people__item-avatar.scss";
+@import "./__search-wrapper/people__search-wrapper.scss";
+@import "./__item-content/people__item-content.scss";
+@import "./__item-content-title/people__item-content-title.scss";
+@import "./__item-content-subtitle/people__item-content-subtitle.scss";
+@import "./__item-content-top/people__item-content-top.scss";
+@import "./__item-content-time/people__item-content-time.scss";
+@import "./__item-content-bottom/people__item-content-bottom.scss";
+@import "./__item-content-digit/people__item-content-digit.scss";
+@import "./__item-content-digit-inner/people__item-content-digit-inner.scss";
+@import "./__item-content-you/people__item-content-you.scss";
+
+.people {
+  width: 100%;
+  max-width: 320px;
+  background-color: #fbfbfb;
+  transition: width 0.2s;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 640px) {
+  .people {
+    max-width: none;
+  }
+}

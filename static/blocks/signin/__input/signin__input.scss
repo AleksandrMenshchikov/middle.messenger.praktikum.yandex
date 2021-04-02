@@ -1,0 +1,20 @@
+.signin__input {
+  box-sizing: border-box;
+  height: 28px;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #3369f3;
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+}
+
+.signin__input:-webkit-autofill {
+  box-shadow: 0 0 0 28px #fff inset !important;
+}
+
+.signin__input:focus {
+  padding: 0 5px;
+  border-bottom: none;
+}

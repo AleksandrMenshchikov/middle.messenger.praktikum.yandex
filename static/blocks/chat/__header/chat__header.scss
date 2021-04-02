@@ -1,0 +1,15 @@
+.chat__header {
+  background-color: $white-color;
+  min-height: 54px;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px -1px 0px 0px #fff;
+  margin: 0 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .chat__header {
+    margin: 0 10px;
+  }
+}

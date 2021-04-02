@@ -1,0 +1,12 @@
+.profile__editor-info-wrapper {
+  min-height: 30px;
+  max-width: 510px;
+  border-bottom: 1px solid #eaeaea;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.profile__editor-info-wrapper:last-child {
+  border-bottom: none;
+}

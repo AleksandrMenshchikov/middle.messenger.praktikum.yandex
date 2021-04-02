@@ -1,0 +1,13 @@
+.popup-add-user__input {
+  display: block;
+  width: calc(100% - 60px);
+  margin: 5px 30px 30px;
+  border: none;
+  border-bottom: 1px solid #3369f3;
+  box-sizing: border-box;
+  height: 28px;
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+}

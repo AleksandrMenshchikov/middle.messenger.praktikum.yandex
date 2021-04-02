@@ -1,0 +1,22 @@
+.chat__footer-input-text {
+  border: none;
+  background-color: $light-gray-color;
+  width: 100%;
+  margin: 10px 15px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  outline-style: none;
+  max-height: 100px;
+  resize: none;
+}
+
+.chat__footer-input-text::placeholder {
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}

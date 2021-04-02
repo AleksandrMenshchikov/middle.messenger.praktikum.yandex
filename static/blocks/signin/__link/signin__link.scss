@@ -1,0 +1,17 @@
+.signin__link {
+  display: block;
+  margin: 15px auto 30px;
+  width: fit-content;
+  font-family: $font-inter;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+  color: $blue-color;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.signin__link:hover {
+  opacity: 0.9;
+}

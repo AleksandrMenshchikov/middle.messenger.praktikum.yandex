@@ -1,0 +1,45 @@
+@import "./__initial-message/chat__initial-message.scss";
+@import "./__initial-message/_active/chat__initial-message_active.scss";
+@import "./__container/chat__container.scss";
+@import "./__header/chat__header.scss";
+@import "./__header-back/chat__header-back.scss";
+@import "./__header-avatar/chat__header-avatar.scss";
+@import "./__header-title/chat__header-title.scss";
+@import "./__header-button-dots/chat__header-button-dots.scss";
+@import "./__header-accept-user/chat__header-accept-user.scss";
+@import "./__header-add-user/chat__header-add-user.scss";
+@import "./__header-add-user-text/chat__header-add-user-text.scss";
+@import "./__header-delete-user/chat__header-delete-user.scss";
+@import "./__header-accept-user/_active/chat__header-accept-user_active.scss";
+@import "./__footer/chat__footer.scss";
+@import "./__footer-button-select/chat__footer-button-select.scss";
+@import "./__footer-buttons-container/chat__footer-buttons-container.scss";
+@import "./__footer-input-foto-and-video/chat__footer-input-foto-and-video.scss";
+@import "./__footer-label/chat__footer-label.scss";
+@import "./__footer-label-text/chat__footer-label-text.scss";
+@import "./__footer-input-container/chat__footer-input-container.scss";
+@import "./__footer-buttons-container/_active/chat__footer-buttons-container_active.scss";
+@import "./__footer-form/chat__footer-form.scss";
+@import "./__footer-input-text/chat__footer-input-text.scss";
+@import "./__footer-button-submit/chat__footer-button-submit.scss";
+@import "./__list/chat__list.scss";
+@import "./__message/chat__message.scss";
+@import "./__message-date/chat__message-date.scss";
+@import "./__message-left-text/chat__message-left-text.scss";
+@import "./__message-left-text-time/chat__message-left-text-time.scss";
+@import "./__message-left-text-inner/chat__message-left-text-inner.scss";
+@import "./__message-left-img-container/chat__message-left-img-container.scss";
+@import "./__message-left-img-time/chat__message-left-img-time.scss";
+@import "./__message-right-text/chat__message-right-text.scss";
+@import "./__message-right-text-inner/chat__message-right-text-inner.scss";
+@import "./__message-right-text-time/chat__message-right-text-time.scss";
+
+.chat {
+  width: 100%;
+  transition: width 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}

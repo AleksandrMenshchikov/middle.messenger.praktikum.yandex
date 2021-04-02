@@ -1,0 +1,17 @@
+.chat__footer-button-submit {
+  min-width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  background: url(/images/arrow-big-right.svg) no-repeat center;
+}
+
+.chat__footer-button-submit:hover {
+  opacity: 0.9;
+}
